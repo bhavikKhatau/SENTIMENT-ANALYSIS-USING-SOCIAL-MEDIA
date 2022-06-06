@@ -1,14 +1,14 @@
 def API_key():
-    return "FhF9BUCwPVnsvw3ftRHqM0YSA"
+    return "API key"
 
 
 def API_key_secret():
-    return "melLq2UqpxJueTTkbWsHT19rIS1X2XvNxcxKf0FpR8p2VmouNO"
+    return "API key secret"
 
 
 def Access_token():
-    return "1373572832492318723-l07oaxVl8DusZzm0ShN7gaRd1PJKcQ"
+    return "Access token"
 
 
 def Access_token_secret():
-    return "inWxfsNDRTDIB2Erw4T7CK6llXXzi8Q7DKZXh1vFY46O3"
+    return "Access token secret"
