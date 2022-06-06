@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://kit.fontawesome.com/65c0a5e955.js" crossorigin="anonymous"></script>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+		<style type="text/css">
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+			body{
+				background-color:#912947;
+			}
+			h1{
+				color:#ffffff;
+				text-transform:capitalize;
+				text-align:center;
+				background-color:#000000;
+			}
+			label{
+				text-transform:capitalize;
+			}
+			button{
+				text-transform:capitalize;
+			}
+			th{
+				text-transform:capitalize;
+			}
+			.fa-solid{
+				font-size:70px;
+			}
+			#piechart_3d{
+				margin:20px 0px;
+				width:98.7vw;
+				height:80vh;
+			}
+			.container{
+				max-width: 1170px;
+				margin:auto;
+			}
+			.row{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			ul{
+				list-style: none;
+			}
+			.footer{
+				background-color: #24262b;
+				padding: 70px 0;
+			}
+			.footer-col{
+				width: 25%;
+				padding: 0 15px;
+			}
+			.footer-col h4{
+				font-size: 18px;
+				color: #ffffff;
+				text-transform: capitalize;
+				margin-bottom: 35px;
+				font-weight: 500;
+				position: relative;
+			}
+			.footer-col h4::before{
+				content: '';
+				position: absolute;
+				left:0;
+				bottom: -10px;
+				background-color: #e91e63;
+				height: 2px;
+				box-sizing: border-box;
+				width: 50px;
+			}
+			.footer-col ul li:not(:last-child){
+				margin-bottom: 10px;
+			}
+			.footer-col ul li a{
+				font-size: 16px;
+				text-transform: capitalize;
+				color: #ffffff;
+				text-decoration: none;
+				font-weight: 300;
+				color: #bbbbbb;
+				display: block;
+				transition: all 0.3s ease;
+			}
+			.footer-col ul li a:hover{
+				color: #ffffff;
+				padding-left: 8px;
+			}
+			.footer-col .social-links a{
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				background-color: rgba(255,255,255,0.2);
+				margin:0 10px 10px 0;
+				text-align: center;
+				line-height: 40px;
+				border-radius: 50%;
+				color: #ffffff;
+				transition: all 0.5s ease;
+			}
+			.footer-col .social-links a:hover{
+				color: #24262b;
+				background-color: #ffffff;
+			}
+			/*responsive*/
+			@media(max-width: 767px){
+				.footer-col{
+					width: 50%;
+					margin-bottom: 30px;
+				}
+				#piechart_3d{
+				margin:20px 0px;
+				width:100vw;
+				height:80vh;
+			}
+			@media(max-width: 574px){
+				.footer-col{
+					width: 100%;
+				}
+				#piechart_3d{
+				margin:20px 0px;
+				width:100vw;
+				height:80vh;
+			}
+		</style>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load("current", {packages:["corechart"]});
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart(){
+				var data = google.visualization.arrayToDataTable([
+					['Task', 'Sentiment'],
+					['Positive',{{positive}}],
+					['Neutral',{{neutral}}],
+					['Negative',{{negative}}]
+					]);
+				var options = {
+					title: '{{mess}}',
+					is3D: true,
+					slices: {
+						0: { color: '#7aeb34' },
+						1: { color: '#ebeb34' },
+						2: { color: '#eb4034' }
+					}
+				};
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+				chart.draw(data, options);
+			}
+		</script>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Hypes Vibes</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/aboutus">About us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/logout">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="piechart_3d"></div>
+		<h1>Positive</h1>
+		<table class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Sr No.</th>
+					<th scope="col">date & time</th>
+					<th scope="col">likes</th>
+					<th scope="col">tweets</th>
+					<th scope="col">sentiment</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in range(posn) %}
+					<tr>
+						<th scope="row">{{i+1}}</th>
+						<td>{{positive_time[i]}}</td>
+						<td>{{positive_likes[i]}}</td>
+						<td>{{positive_tweets[i]}}</td>
+						<td><i class="fa-solid fa-face-smile" style="color:#7aeb34;"></i></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<h1>Neutral</h1>
+		<table class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Sr No.</th>
+					<th scope="col">date & time</th>
+					<th scope="col">likes</th>
+					<th scope="col">tweets</th>
+					<th scope="col">sentiment</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in range(neun) %}
+					<tr>
+						<th scope="row">{{i+1}}</th>
+						<td>{{neutral_time[i]}}</td>
+						<td>{{neutral_likes[i]}}</td>
+						<td>{{neutral_tweets[i]}}</td>
+						<td><i class="fa-solid fa-face-flushed" style="color:#ebeb34;"></i></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<h1>Negative</h1>
+		<table class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th scope="col">Sr No.</th>
+					<th scope="col">date & time</th>
+					<th scope="col">likes</th>
+					<th scope="col">tweets</th>
+					<th scope="col">sentiment</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in range(negn) %}
+					<tr>
+						<th scope="row">{{i+1}}</th>
+						<td>{{negative_time[i]}}</td>
+						<td>{{negative_likes[i]}}</td>
+						<td>{{negative_tweets[i]}}</td>
+						<td><i class="fa-solid fa-face-frown-open" style="color:#eb4034;"></i></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</body>
+</html>

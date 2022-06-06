@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style type="text/css">
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+			body{
+				background-color:#912947;
+			}
+			.loginbox{
+				background-color:rgba(0, 0, 0, 1.0);
+				padding:50px;
+				margin:20px 20px 20px 20px;
+			}
+			select{
+				text-transform:capitalize;
+			}
+			h1{
+				color:#ffffff;
+				text-transform:capitalize;
+				text-align:center;
+			}
+			label{
+				text-transform:capitalize;
+			}
+			option{
+				text-transform:capitalize;
+			}
+			button{
+				text-transform:capitalize;
+			}
+			.loginbox a{
+				text-transform:capitalize;
+				color:#ffffff;
+				font-size:150%;
+				text-align:center;
+				text-decoration:none;
+			}
+			.loginbox a:hover{
+				font-size:200%;
+			}
+			.loginbox a i{
+				padding:15px 0px;
+				border:1px solid #ffffff;
+				border-radius:10px;
+				color:#ffffff;
+			}
+			.rad{
+				font-size:150%;
+				font-weight:bold;
+				color:#ffffff;
+			}
+			.container{
+				max-width: 1170px;
+				margin:auto;
+			}
+			.row{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			ul{
+				list-style: none;
+			}
+			.footer{
+				background-color: #24262b;
+				padding: 70px 0;
+			}
+			.footer-col{
+				width: 25%;
+				padding: 0 15px;
+			}
+			.footer-col h4{
+				font-size: 18px;
+				color: #ffffff;
+				text-transform: capitalize;
+				margin-bottom: 35px;
+				font-weight: 500;
+				position: relative;
+			}
+			.footer-col h4::before{
+				content: '';
+				position: absolute;
+				left:0;
+				bottom: -10px;
+				background-color: #e91e63;
+				height: 2px;
+				box-sizing: border-box;
+				width: 50px;
+			}
+			.footer-col ul li:not(:last-child){
+				margin-bottom: 10px;
+			}
+			.footer-col ul li a{
+				font-size: 16px;
+				text-transform: capitalize;
+				color: #ffffff;
+				text-decoration: none;
+				font-weight: 300;
+				color: #bbbbbb;
+				display: block;
+				transition: all 0.3s ease;
+			}
+			.footer-col ul li a:hover{
+				color: #ffffff;
+				padding-left: 8px;
+			}
+			.footer-col .social-links a{
+				display: inline-block;
+				height: 40px;
+				width: 40px;
+				background-color: rgba(255,255,255,0.2);
+				margin:0 10px 10px 0;
+				text-align: center;
+				line-height: 40px;
+				border-radius: 50%;
+				color: #ffffff;
+				transition: all 0.5s ease;
+			}
+			.footer-col .social-links a:hover{
+				color: #24262b;
+				background-color: #ffffff;
+			}
+			/*responsive*/
+			@media(max-width: 767px){
+				.footer-col{
+					width: 50%;
+					margin-bottom: 30px;
+				}
+			}
+			@media(max-width: 574px){
+				.footer-col{
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		{% if error %}
+			<script type='text/javascript'>
+			alert("{{error}}")
+			</script>
+		{% endif %}
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Hypes Vibes</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/aboutus">About us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="/logout">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<form class="loginbox" method="post">
+			<h1>
+			<i class="fas fa-user-alt"></i><br>
+			Welcome, {{name}}<br>
+			<h3 style="color:white;text-align:center;">{{email}}</h3>
+			</h1><br>
+			<div class="d-block col-3 mx-auto mb-3">
+				<label class="rad">Category</label>
+				<input type="radio" class="btn-check" name="options-outlined" id="success-outlined" value="movie" checked>
+				<label class="btn btn-outline-success" for="success-outlined">movie</label>
+				<input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" value="web series">
+				<label class="btn btn-outline-danger" for="danger-outlined">web series</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" id="Movie Name" placeholder="Movie Name" name="Movie Name" required>
+				<label for="Movie Name">Name</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="Number" class="form-control" id="Number of tweets" placeholder="Number of tweets" name="Number of tweets" required>
+				<label for="Number of tweets">Number of tweets</label>
+			</div>
+			<select class="form-select" aria-label="Disabled select example mb-3" name="sel">
+				<option selected>Open this select menu</option>
+				<option value="1">Know the sentiments (text blob)</option>
+				<option value="2">Know the emotions</option>
+				<option value="3">Know the sentiments (machine learning)</option>
+			</select>
+			<br><div class="d-grid gap-2 col-2 mx-auto mb-3">
+				<button type="submit" class="btn btn-primary">submit</button>
+			</div>
+			<a href="/history{{email}}" class="d-grid col-1 mx-auto mb-3"><i class="fa fa-history"></i>history</a>
+			<a href="/logout" class="d-grid col-1 mx-auto"><i class="fa fa-sign-out"></i>Logout</a>
+		</form>
+	</body>
+</html>
